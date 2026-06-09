@@ -1,0 +1,9 @@
+[submodule "submodules/simple-knn"]
+	path = submodules/simple-knn
+	url = https://gitlab.inria.fr/bkerbl/simple-knn.git
+[submodule "submodules/Grounded-SAM-2"]
+	path = submodules/Grounded-SAM-2
+	url = https://github.com/IDEA-Research/Grounded-SAM-2.git
+[submodule "submodules/diff-gaussian-rasterization_2d"]
+	path = submodules/diff-gaussian-rasterization_2d
+	url = https://github.com/Li-Yuetao/diff-gaussian-rasterization_2d.git

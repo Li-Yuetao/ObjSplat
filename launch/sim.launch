@@ -1,0 +1,39 @@
+<launch>
+    <arg name="mapper" default="GSMap"/>
+    <arg name="config" default="$(find objsplat)/config/datasets/simcam_gsmap.json"/>
+    <arg name="serial_number" default="1"/>
+    <arg name="remark" default="None"/>
+    <arg name="gpu_id" default="0"/>
+    <arg name="object_id" default="BUNNY-RACER"/>
+    <arg name="mode" default="AUTO_PLANNING"/>
+    <arg name="view_strategy" default="None"/>
+    <arg name="debug" default="0"/>
+    <arg name="hide_mapper_windows" default="0"/>
+    <arg name="hide_planner_windows" default="0"/>
+    <arg name="capture_num" default="-1"/>
+    <arg name="save_runtime_data" default="0"/>
+    <arg name="with_arm_turntable" default="1"/>
+
+    <param name="capture_num" value="$(arg capture_num)"/>
+
+    <node pkg="objsplat" name="mapper_node" type="mapper_node.py" output="screen" args="
+        --mapper $(arg mapper)
+        --config $(arg config) 
+        --serial_number $(arg serial_number) 
+        --remark $(arg remark) 
+        --gpu_id $(arg gpu_id) 
+        --object_id $(arg object_id) 
+        --mode $(arg mode) 
+        --view_strategy $(arg view_strategy)
+        --hide_windows $(arg hide_mapper_windows) 
+        --save_runtime_data $(arg save_runtime_data) 
+        --with_arm_turntable $(arg with_arm_turntable) 
+        --debug $(arg debug)"/>
+
+    <node pkg="objsplat" name="planner_node" type="planner_node.py" output="screen" args="
+        --config $(arg config) 
+        --view_strategy $(arg view_strategy)
+        --hide_windows $(arg hide_planner_windows) 
+        --debug $(arg debug)"/>
+
+</launch>

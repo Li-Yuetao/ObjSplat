@@ -1,0 +1,3 @@
+geometry_msgs/Pose[]    candidate_views
+---
+float32[]               candidate_views_uncertainty

@@ -1,0 +1,5 @@
+geometry_msgs/Pose[]    views
+string mode
+---
+geometry_msgs/Pose[]    fail_views
+bool success

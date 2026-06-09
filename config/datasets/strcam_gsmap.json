@@ -1,0 +1,102 @@
+{
+    "sensor": {
+        "config": "config/sensor/strcam"
+    },
+    "system": {
+        "eval": {
+            "visual_quality": false,
+            "save_gaussians_data_every": 0
+        }
+    },
+    "dataset": {
+        "format": "strcam",
+        "with_arm_turntable": true,
+        "object_id": "cap",
+        "remark": "",
+        "auto_stop": false,
+        "capture_num": 30,
+        "sc_factor": 1,
+        "depth_scale": 1000,
+        "downsample": 1,
+        "translation": [0, 0, 0],
+        "bbox": [
+            [0, -1.0, 0],
+            [0, 1.0, 0]
+        ]
+    },
+    "object_align": {
+        "resolution": 2.0
+    },
+    "mapper": {
+        "refine_pose": true,
+        "map_every": 1,
+        "keyframe_every": 1,
+        "mapping_iters": 2,
+        "interval_max_ratio": 10.0,
+        "densify_downscale_factor": 2,
+        "pose": {
+            "update_threshold": {
+                "translation": 0.01,
+                "rotation": 5
+            }
+        },
+        "frame_buffer": {
+            "pre_num": 100
+        },
+        "frontend": {
+            "factor_graph": {
+                "test": false
+            }
+        },
+        "gs_backend": {
+            "gaussians": {
+                "use_view_distribution": true,
+                "online_iterations": 10,
+                "offline_iterations": 7000,
+                "window_size": 10, 
+                "sh_degree": 3,
+                "eval_plots": false,
+                "surface": true,
+                "normalize_depth": true,
+                "perpix_depth": true,
+                "dual_visible": true,
+                "random_background": true,
+                "background": [1, 1, 1],
+                "rgb_error_thres": 0.25,
+                "training_args": {
+                    "test_iterations": [1000, 7000, 15000, 26000],
+                    "save_iterations": [1000, 7000, 15000, 26000],
+                    "position_lr_init": 0.000016,
+                    "position_lr_final": 0.0000016,
+                    "position_lr_delay_mult": 0.01,
+                    "position_lr_max_steps": 15000,
+                    "feature_lr": 0.0025,
+                    "opacity_lr": 0.05,
+                    "cutoff_lr": 0.001,
+                    "scaling_lr": 0.005,
+                    "rotation_lr": 0.001,
+                    "camera_lr": 0.00025,
+                    "percent_dense": 0.01,
+                    "lambda_dssim": 0.2,
+                    "densification_interval": 100,
+                    "opacity_reset_interval": 1000,
+                    "densify_from_iter": 200,
+                    "densify_until_iter": 30000,
+                    "densify_grad_threshold": 0.0001,
+                    "pruning_interval": 200
+                }
+            }
+        }
+    },
+    "planner": {
+        "view_strategy": "NBP_P"
+    },
+    "grounded_sam": {
+        "sam2_model_cfg": "configs/sam2.1/sam2.1_hiera_l.yaml",
+        "sam2_checkpoint": "./checkpoints/sam2.1_hiera_large.pt",
+        "grounding_dino_cfg": "grounding_dino/groundingdino/config/GroundingDINO_SwinT_OGC.py",
+        "grounding_dino_checkpoint": "gdino_checkpoints/groundingdino_swint_ogc.pth",
+        "box_threshold": 0.35,
+        "text_threshold": 0.25
+    }
+}

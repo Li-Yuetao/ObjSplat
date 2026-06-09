@@ -1,0 +1,4 @@
+---
+float64[]             object_bound_min
+float64[]             object_bound_max
+geometry_msgs/Pose    current_pose

@@ -1,0 +1,45 @@
+%YAML:1.0
+---
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (OpenCV)
+Camera.fx: 1369.5738208215996
+Camera.fy: 1369.5738208215996
+Camera.cx: 640.5
+Camera.cy: 360.5
+
+# distortion parameters
+Camera.k1: 0
+Camera.k2: 0
+Camera.p1: 0
+Camera.p2: 0
+Camera.k3: 0
+
+# Camera frames per second 
+Camera.fps: 30
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Camera resolution
+Camera.width: 1280
+Camera.height: 720
+
+# stereo baseline times fx
+Camera.bf: 40.0 #426.0925095349294 * 0.095m
+
+Camera.depth_max: 1.0
+Camera.depth_min: 0.05
+
+# Close/Far threshold. Baseline times.
+ThDepth: 62.4
+
+# Depth map values factor 
+DepthMapFactor: 1.0
+
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0

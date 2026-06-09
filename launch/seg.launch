@@ -1,0 +1,11 @@
+<launch>
+    <arg name="config" default="$(find objsplat)/config/datasets/simcam_gsmap.json"/>
+    <arg name="gpu_id" default="0"/>
+    <arg name="debug" default="0"/>
+
+    <node pkg="objsplat" name="seg_node" type="seg_node.py" output="screen" args="
+        --config $(arg config) 
+        --gpu_id $(arg gpu_id) 
+        --debug $(arg debug)"/>
+
+</launch>

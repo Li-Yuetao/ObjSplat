@@ -1,0 +1,19 @@
+---
+uint32                rgbd_height
+uint32                rgbd_width
+float64               rgbd_fx
+float64               rgbd_fy
+float64               rgbd_cx
+float64               rgbd_cy
+float64[]             rgbd_dist
+float64               rgbd_depth_max
+float64               rgbd_depth_min
+float64               rgbd_depth_scale
+geometry_msgs/Point   rgbd_position
+float64               rgbd_downsample_factor
+float64               focal_length
+geometry_msgs/Point   scene_bound_min
+geometry_msgs/Point   scene_bound_max
+string                pose_data_type
+uint32                height_direction
+string                results_dir

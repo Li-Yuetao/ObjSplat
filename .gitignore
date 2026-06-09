@@ -1,0 +1,10 @@
+__pycache__/
+.vscode/
+
+debug_utils/
+results/
+typings/
+
+*.pth
+*.ply
+*.pcd
